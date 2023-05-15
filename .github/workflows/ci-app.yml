@@ -27,3 +27,19 @@ jobs:
         uses: tonybaloney/pycharm-security@master
         with: 
           fail_on_warnings: "no"
+
+  docker-grype-project:
+    name: Grype (Anchore) Project Scan
+    needs: [gitleaks]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Scan current project with Grype (Anchore)
+        id: scan-project
+        uses: anchore/scan-action@v3
+        with:
+          path: "."
+          fail-build: true
+          output-format: table
