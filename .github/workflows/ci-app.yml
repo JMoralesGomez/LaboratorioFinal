@@ -70,7 +70,7 @@ jobs:
           REGISTRY: ghcr.io
           IMAGE_NAME: ${{ github.repository }}
           ECR_REPOSITORY: 'JMoralesGomez/LaboratorioFinal'
-          IMAGE_TAG: ${{ env.IMAGE_TAG }}
+          IMAGE_TAG: 'main-371d2dc4'
         run: |
           echo REGISTRY: $REGISTRY
           echo ECR_REPOSITORY: $ECR_REPOSITORY
