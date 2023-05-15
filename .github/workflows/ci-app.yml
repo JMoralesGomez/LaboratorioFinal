@@ -70,7 +70,7 @@ jobs:
           REGISTRY: ghcr.io
           IMAGE_NAME: 'JMoralesGomez/LaboratorioFinal'
           ECR_REPOSITORY: 'JMoralesGomez/LaboratorioFinal'
-          IMAGE_TAG: ${{ env.IMAGE_TAG }}
+          IMAGE_TAG: 'main-810ac8e2'
         run: |
           echo REGISTRY: $REGISTRY
           echo ECR_REPOSITORY: $ECR_REPOSITORY
