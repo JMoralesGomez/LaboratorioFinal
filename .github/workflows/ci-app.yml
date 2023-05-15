@@ -135,3 +135,12 @@ jobs:
           image: "${{ needs.docker-build.outputs.full_docker_image_tag }}"
           output-format: table
           fail-build: false
+
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    needs: [docker-grype,docker-trivy-vuln]
+    steps:
+      - name: Deploy the thing
+        run: |
+          echo Deploying 🚀
