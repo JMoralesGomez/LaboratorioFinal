@@ -26,4 +26,4 @@ jobs:
       - name: Run PyCharm Security
         uses: tonybaloney/pycharm-security@master
         with: 
-          fail_on_warnings: "no"
+          fail_on_warnings: "yes"
