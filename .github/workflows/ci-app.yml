@@ -14,3 +14,16 @@ jobs:
       - name: run gitleaks docker
         run: |
           docker run -v ${PWD}:/path zricethezav/gitleaks:latest detect --source="/path/" -v -l debug --no-git
+
+  pycharm:
+    runs-on: ubuntu-latest
+    needs: [gitleaks]
+    name: Pycharm-security check
+    steps:
+      - name: checkout git repository
+        uses: actions/checkout@v3
+
+      - name: Run PyCharm Security
+        uses: tonybaloney/pycharm-security@master
+        with: 
+          fail_on_warnings: "no"
