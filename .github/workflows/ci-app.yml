@@ -68,9 +68,9 @@ jobs:
         id: build_image
         env:
           REGISTRY: ghcr.io
-          IMAGE_NAME: 'JMoralesGomez/LaboratorioFinal'
-          ECR_REPOSITORY: 'JMoralesGomez/LaboratorioFinal'
-          IMAGE_TAG: 'main-810ac8e2'
+          IMAGE_NAME: 'jmoralesgomez/laboratoriofinal'
+          ECR_REPOSITORY: 'jmoralesgomez/laboratoriofinal'
+          IMAGE_TAG: ${{ env.IMAGE_TAG }}
         run: |
           echo REGISTRY: $REGISTRY
           echo ECR_REPOSITORY: $ECR_REPOSITORY
