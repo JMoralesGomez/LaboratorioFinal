@@ -113,16 +113,16 @@ jobs:
           ignore-unfixed: false
           severity: 'UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL'
 
-name: Debricked scan
-on: [push]
-jobs:
-  vulnerabilities-scan:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: debricked/actions/skip-scan@v1 # Only use if you want to use skip scan
-      env:
-        DEBRICKED_TOKEN: ${{ secrets.dd128873c7cfc3d4da7a921d87f02fe07348564a2fe5bd46}}
+  name: Debricked scan
+  on: [push]
+  jobs:
+    vulnerabilities-scan:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v2
+      - uses: debricked/actions/skip-scan@v1 # Only use if you want to use skip scan
+        env:
+          DEBRICKED_TOKEN: ${{ secrets.dd128873c7cfc3d4da7a921d87f02fe07348564a2fe5bd46}}
 
   docker-grype:
     name: Grype (Anchore) Docker Scan
