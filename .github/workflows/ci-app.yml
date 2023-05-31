@@ -28,6 +28,23 @@ jobs:
         with: 
           fail_on_warnings: "no"
 
+  stages {
+    stage('Vulnerability scan') {
+      environment {
+        DEBRICKED_TOKEN = credentials('dd128873c7cfc3d4da7a921d87f02fe07348564a2fe5bd46')
+      }
+      agent {
+        docker {
+          image 'debricked/debricked-cli'
+          args '--entrypoint="" -v ${WORKSPACE}:/data -w /data'
+        }
+      }
+      steps {
+        sh 'bash /home/entrypoint.sh debricked:scan "" "$DEBRICKED_TOKEN" example-jenkins "$GIT_COMMIT" null cli'
+      }
+    }
+  }
+
   docker-grype-project:
     name: Grype (Anchore) Project Scan
     needs: [gitleaks]
