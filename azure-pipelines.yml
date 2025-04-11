@@ -10,7 +10,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/*.sln'
+  solution: 'https://github.com/JMoralesGomez/LaboratorioFinal'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
